@@ -78,4 +78,4 @@ after the `PokemonBrowser` component first renders.
 If done correctly, you should see the list of all the Pokemon in the side of the
 browser.
 
-[try-catch]: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await#adding_error_handling
+[try-catch]: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await#adding_error_handling# Mod5_Wk3_Day2_Project
