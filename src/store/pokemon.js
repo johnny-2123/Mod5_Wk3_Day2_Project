@@ -47,6 +47,8 @@ export const createPokemon = (payload) => async dispatch => {
 
   if (response.ok) {
     const pokemon = await response.json();
+    console.log(`POKEMON STORE:`)
+    console.log(pokemon)
     dispatch(addOnePokemon(pokemon))
     return pokemon
   }
