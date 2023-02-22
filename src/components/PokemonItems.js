@@ -1,10 +1,19 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getItems } from "../store/items";
 
 const PokemonItems = ({ pokemon, setEditItemId }) => {
   const items = useSelector((state) => {
     if (!pokemon.items) return null;
     return pokemon.items.map(itemId => state.items[itemId]);
   });
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const items = dispatch(getItems(pokemon.id));
+    console.log(`component items: `)
+    console.log(items);
+  }, [dispatch])
 
   if (!items) {
     return null;
@@ -35,7 +44,7 @@ const PokemonItems = ({ pokemon, setEditItemId }) => {
             Delete
           </button>
         </td>
-        
+
       )}
     </tr>
   ));

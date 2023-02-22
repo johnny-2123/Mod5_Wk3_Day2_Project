@@ -12,6 +12,10 @@ router.put(
   itemValidations.validateUpdate,
   asyncHandler(async function (req, res) {
     const item = await ItemsRepository.updateItem(req.body);
+    console.log(`route handler`)
+    console.log(`item:`)
+    console.log(`id: ${req.params.id}`);
+    console.log(item)
     return res.json(item);
   })
 );
