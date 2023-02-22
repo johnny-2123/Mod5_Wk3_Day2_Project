@@ -47,10 +47,21 @@ export const createPokemon = (payload) => async dispatch => {
 
   if (response.ok) {
     const pokemon = await response.json();
-    console.log(`POKEMON STORE:`)
-    console.log(pokemon)
     dispatch(addOnePokemon(pokemon))
     return pokemon
+  }
+}
+
+export const editPokemon = (payload, pokemonId) => async dispatch => {
+  const response = await fetch(`/api/pokemon/${pokemonId}`, {
+    method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+
+  if (response.ok) {
+    const pokemon = await response.json();
+    dispatch(addOnePokemon(pokemon))
   }
 }
 
