@@ -10,6 +10,7 @@ const App = () => {
         exact
       >
         <PokemonBrowser />
+        
       </Route>
     </Switch>
   );

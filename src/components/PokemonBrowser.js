@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
+import { getPokemon } from '../store/pokemon';
+import { useDispatch } from 'react-redux';
 
 import PokemonDetail from './PokemonDetail';
 import CreatePokemonForm from './CreatePokemonForm';
 import Fab from './Fab';
+import { useEffect } from 'react';
 
 const PokemonBrowser = () => {
   const { pokemonId } = useParams();
@@ -12,6 +15,11 @@ const PokemonBrowser = () => {
     return state.pokemon.list.map(pokemonId => state.pokemon[pokemonId]);
   });
   const [showForm, setShowForm] = useState(false);
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getPokemon())
+  }, [dispatch])
 
 
   if (!pokemon) {
